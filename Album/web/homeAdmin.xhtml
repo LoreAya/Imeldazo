@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPictureTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+             <h:form>
+                <div align="center">
+                    <h:panelGrid columns="1">
+                        <h:dataTable columnClasses="2">
+                            <h:column>
+                                <f:facet name="header">
+                                        <h:outputText value="Fotos" />
+                                    <h3>Ultimas fotos agregadas</h3>
+                                    <p:galleria value="#{validaciones.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+                                        <p:graphicImage library="img" name="#{image}" alt="Image Description for #{image}" title="#{image}"/>
+                                    </p:galleria>
+                                </f:facet>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Posts" />
+                                    <h3>Ultimos Anuncios Agregadas</h3>
+                                    
+                                    <p:inputTextarea cols="50"  rows="15" disabled="true"/>
+                                </f:facet>
+                            </h:column>
+                            <h3>Ultimos Post publicados</h3>
+                        </h:dataTable>
+                    </h:panelGrid>
+                </div> 
+                </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

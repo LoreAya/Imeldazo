@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="menuForm" class="module-style">
+            <p:button value="#{bundle.Home}" style="width: 150px;text-align: left" outcome="/homeAdmin" icon="ui-icon-home"/>
+            <p:panelMenu>
+                <p:submenu label="Post" icon="ui-icon-comment">
+                    <p:menuitem value="Lista" icon="ui-icon-document" outcome="/post/List.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Fotos">
+                    <p:menuitem value="Lista" icon="ui-icon-document" outcome="/picture/List.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Nivel de acceso">
+                    <p:menuitem value="Lista" icon="ui-icon-document" outcome="/accesslevel/List.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Parentesco">
+                    <p:menuitem value="Lista" icon="ui-icon-document" outcome="/relationship/List.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Usuario">
+                    <p:menuitem value="Lista" icon="ui-icon-document" outcome="/user/List.xhtml"/>
+                </p:submenu>
+            </p:panelMenu>
+            <p:button value="Salir" style="width: 150px;text-align: left" outcome="/login" icon="ui-icon-arrowreturnthick-1-w"/>
+            
+            <h:form styleClass="modulo">
+                <p:growl autoUpdate="true"/>
+            </h:form>
+        </h:form>
+    </h:body>
+</html>
+

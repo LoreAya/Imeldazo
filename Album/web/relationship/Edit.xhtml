@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RelationshipEditDlg" widgetVar="RelationshipEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRelationshipTitle}">
+            <h:form id="RelationshipEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{relationshipController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRelationshipLabel_idRelationship}" for="idRelationship" />
+                        <p:inputText id="idRelationship" value="#{relationshipController.selected.idRelationship}" title="#{bundle.EditRelationshipTitle_idRelationship}" required="true" requiredMessage="#{bundle.EditRelationshipRequiredMessage_idRelationship}"/>
+                        <p:outputLabel value="#{bundle.EditRelationshipLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{relationshipController.selected.description}" title="#{bundle.EditRelationshipTitle_description}" required="true" requiredMessage="#{bundle.EditRelationshipRequiredMessage_description}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{relationshipController.update}" value="#{bundle.Save}" update="display,:RelationshipListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RelationshipEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RelationshipEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

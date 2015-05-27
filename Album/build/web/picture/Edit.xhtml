@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PictureEditDlg" widgetVar="PictureEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPictureTitle}">
+            <h:form id="PictureEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pictureController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPictureLabel_idPicture}" for="idPicture" />
+                        <p:inputText id="idPicture" value="#{pictureController.selected.idPicture}" title="#{bundle.EditPictureTitle_idPicture}" required="true" requiredMessage="#{bundle.EditPictureRequiredMessage_idPicture}"/>
+                        <p:outputLabel value="#{bundle.EditPictureLabel_urlPicture}" for="urlPicture" />
+                        <p:inputText id="urlPicture" value="#{pictureController.selected.urlPicture}" title="#{bundle.EditPictureTitle_urlPicture}" required="true" requiredMessage="#{bundle.EditPictureRequiredMessage_urlPicture}"/>
+                        <p:outputLabel value="#{bundle.EditPictureLabel_dateHour}" for="dateHour" />
+                        <p:calendar id="dateHour" pattern="MM/dd/yyyy HH:mm:ss" value="#{pictureController.selected.dateHour}" title="#{bundle.EditPictureTitle_dateHour}" required="true" requiredMessage="#{bundle.EditPictureRequiredMessage_dateHour}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPictureLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{pictureController.selected.description}" title="#{bundle.EditPictureTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditPictureLabel_useridUser}" for="useridUser" />
+                        <p:selectOneMenu id="useridUser" value="#{pictureController.selected.useridUser}" required="true" requiredMessage="#{bundle.EditPictureRequiredMessage_useridUser}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="useridUserItem"
+                                           itemValue="#{useridUserItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pictureController.update}" value="#{bundle.Save}" update="display,:PictureListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PictureEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PictureEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

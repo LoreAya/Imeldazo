@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PostSearchDlg" widgetVar="PostSearchDialog" modal="true" resizable="false" appendTo="@(body)" header="Buscar Por Fecha">
+            <h:form id="PostSearchForm">
+            <h:panelGroup id="display">
+                <p:panelGrid columns="2" rendered="true">
+                        <p:panelMenu>
+                            <p:submenu label="Consultar Datos" icon="ui-icon-comment">
+                                <p:menuitem>
+                                    <h:form>
+                                        <h:outputText value="Seleccione la fecha: "/>
+                                        <p:calendar id="effect" effect="fold"/>
+                                        <p:commandButton value="Buscar" />
+                                    </h:form>
+                                </p:menuitem>
+                            </p:submenu>
+                            <p:submenu label="Buscar Por Nombre" icon="ui-icon-comment">
+                                <p:menuitem>
+                                    <h:form>
+                                        <h:outputText value="Seleccione el usuario: "/>
+                                        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
+                                        </p:selectOneMenu>
+                                        <p:commandButton value="Buscar"/>
+                                    </h:form>
+                                </p:menuitem>
+                            </p:submenu>
+                        </p:panelMenu>    
+                    </p:panelGrid>
+                </h:panelGroup>
+                </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
+

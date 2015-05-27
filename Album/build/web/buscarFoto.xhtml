@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template2.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPostTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <div align="center">
+<!--<h:form id="PictureSearchForm">
+                        <p:panelMenu>
+                            <p:submenu label="Consultar Datos" icon="ui-icon-comment">
+                                <p:menuitem>
+                                    <h:form>
+                                        <h:outputText value="Seleccione la fecha: "/>
+                                        <p:calendar id="effect" effect="fold"/>
+                                        <p:commandButton value="Buscar" />
+                                    </h:form>
+                                </p:menuitem>
+                            </p:submenu>
+                            <p:submenu label="Buscar Por Nombre" icon="ui-icon-comment">
+                                <p:menuitem>
+                                    <h:form>
+                                        <h:outputText value="Seleccione el usuario: "/>
+                                        <p:selectOneMenu />
+                                        <p:commandButton value="Buscar"/>
+                                    </h:form>
+                                </p:menuitem>
+                            </p:submenu>
+                        </p:panelMenu>  
+                </h:form>-->
+<h:form>  
+    <h3 style="margin-top:0">Busqueda personalizada</h3>
+    <p:menu style="width: 700px;">
+        <p:submenu label="Busqueda por fecha">
+            <p:menuitem>
+                <h:form>
+                    <h:outputText value="Seleccione la fecha: "/>
+                    <p:calendar id="effect" effect="fold"/>&nbsp;
+                    <p:commandButton value="Buscar" />
+                </h:form>
+            </p:menuitem>
+        </p:submenu>
+        <p:submenu label="Busqueda por nombre">
+            <p:menuitem>
+                <h:form>
+                    <h:outputText value="Seleccione el usuario: "/>
+                    <p:selectOneMenu id="user" style="width: 200px;"/>&nbsp;
+                    <p:commandButton value="Buscar"/>
+                </h:form>
+            </p:menuitem>
+        </p:submenu>
+    </p:menu>
+    </h:form>
+            </div>  
+        </ui:define>
+    </ui:composition>
+
+</html>
